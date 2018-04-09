@@ -10,8 +10,9 @@ namespace CustomPrototypes.Portable.ViewModels
         {
             MenuItems = new ObservableCollection<RootMenuItem>(new[]
             {
-                new RootMenuItem { Id = 0, Title = "Badges Idea", TargetType = typeof(BadgesIdeaPage)},
-                new RootMenuItem { Id = 1, Title = "About", TargetType = typeof(AboutPage) }
+                new RootMenuItem { Id = 0, Title = "Global Styles", TargetType = typeof(GloballyStyledControls)},
+                new RootMenuItem { Id = 2, Title = "Badges Idea", TargetType = typeof(BadgesIdeaPage)},
+                new RootMenuItem { Id = 3, Title = "About", TargetType = typeof(AboutPage) }
             });
         }
         public ObservableCollection<RootMenuItem> MenuItems { get; set; }
