@@ -39,6 +39,7 @@
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="Models\BadgedItem.cs" />
+    <Compile Include="Models\Data.cs" />
     <Compile Include="Models\ObservableObject.cs" />
     <Compile Include="Properties\Annotations.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -50,6 +51,9 @@
     </Compile>
     <Compile Include="Views\BadgesIdeaPage.xaml.cs">
       <DependentUpon>BadgesIdeaPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\DataGridEditContext.xaml.cs">
+      <DependentUpon>DataGridEditContext.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\GloballyStyledControls.xaml.cs">
       <DependentUpon>GloballyStyledControls.xaml</DependentUpon>
@@ -143,6 +147,12 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Views\GloballyStyledControls.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\DataGridEditContext.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>
