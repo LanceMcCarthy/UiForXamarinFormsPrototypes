@@ -52,11 +52,14 @@
     <Compile Include="Views\BadgesIdeaPage.xaml.cs">
       <DependentUpon>BadgesIdeaPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\DataGridEditContext.xaml.cs">
-      <DependentUpon>DataGridEditContext.xaml</DependentUpon>
+    <Compile Include="Views\CalendarRenderersPage.xaml.cs">
+      <DependentUpon>CalendarRenderersPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\GloballyStyledControls.xaml.cs">
-      <DependentUpon>GloballyStyledControls.xaml</DependentUpon>
+    <Compile Include="Views\DataGridEditContextPage.xaml.cs">
+      <DependentUpon>DataGridEditContextPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\GlobalStylesPage.xaml.cs">
+      <DependentUpon>GlobalStylesPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Root.xaml.cs">
       <DependentUpon>Root.xaml</DependentUpon>
@@ -146,13 +149,19 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Views\GloballyStyledControls.xaml">
+    <EmbeddedResource Include="Views\GlobalStylesPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Views\DataGridEditContext.xaml">
+    <EmbeddedResource Include="Views\DataGridEditContextPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\CalendarRenderersPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>

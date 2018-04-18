@@ -2,9 +2,9 @@
 
 namespace CustomPrototypes.Portable.Views
 {
-    public partial class RootDetail : ContentPage
+    public partial class CalendarRenderersPage : ContentPage
     {
-        public RootDetail()
+        public CalendarRenderersPage()
         {
             InitializeComponent();
         }

@@ -6,15 +6,15 @@ using Xamarin.Forms;
 
 namespace CustomPrototypes.Portable.Views
 {
-    public partial class DataGridEditContext : ContentPage
+    public partial class DataGridEditContextPage : ContentPage
     {
         private readonly List<Data> items;
 
-        public DataGridEditContext()
+        public DataGridEditContextPage()
         {
             InitializeComponent();
 
-            this.items = new List<Data>
+            items = new List<Data>
             {
                 new Data { Country = "India", Capital = "New Delhi"},
                 new Data { Country = "South Africa", Capital = "Cape Town"},
@@ -27,9 +27,11 @@ namespace CustomPrototypes.Portable.Views
 
         private void Button_Clicked(object sender, System.EventArgs e)
         {
-            DataGridCellInfo cellInfo = new DataGridCellInfo(items[0], this.DataGrid.Columns[0]);
-            var editContext = new EditContext(cellInfo, ActionTrigger.Programmatic, null);
-            this.DataGrid.CommandService.ExecuteDefaultCommand(DataGridCommandId.BeginEdit, editContext);
+            var cellInfo = new DataGridCellInfo(items[0], this.DataGrid.Columns[0]);
+            
+            DataGrid.CommandService.ExecuteDefaultCommand(
+                DataGridCommandId.BeginEdit, 
+                new EditContext(cellInfo, ActionTrigger.Programmatic, null));
         }
     }
 }

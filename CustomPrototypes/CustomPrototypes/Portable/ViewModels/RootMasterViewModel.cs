@@ -10,12 +10,14 @@ namespace CustomPrototypes.Portable.ViewModels
         {
             MenuItems = new ObservableCollection<RootMenuItem>(new[]
             {
-                new RootMenuItem { Id = 0, Title = "DataGrid EditContext", TargetType = typeof(DataGridEditContext)},
-                new RootMenuItem { Id = 1, Title = "Global Styles", TargetType = typeof(GloballyStyledControls)},
-                new RootMenuItem { Id = 2, Title = "Badges Idea", TargetType = typeof(BadgesIdeaPage)},
-                new RootMenuItem { Id = 3, Title = "About", TargetType = typeof(AboutPage) }
+                new RootMenuItem { Title = "Calendar Renderers", TargetType = typeof(CalendarRenderersPage)},
+                new RootMenuItem { Title = "DataGrid EditContext", TargetType = typeof(DataGridEditContextPage)},
+                new RootMenuItem { Title = "Global Styles", TargetType = typeof(GlobalStylesPage)},
+                new RootMenuItem { Title = "Badges Idea", TargetType = typeof(BadgesIdeaPage)},
+                new RootMenuItem { Title = "About", TargetType = typeof(AboutPage) }
             });
         }
+
         public ObservableCollection<RootMenuItem> MenuItems { get; set; }
     }
 }
