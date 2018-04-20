@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:input="clr-namespace:Telerik.XamarinForms.Input;assembly=Telerik.XamarinForms.Input"
+             x:Class="CustomPrototypes.NetStandard.Views.CalendarRenderersPage">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="5*" />
+            <RowDefinition Height="1*" />
+        </Grid.RowDefinitions>
+
+        <input:RadCalendar />
+
+        <Label Text="See the custom renderer in the target platform project."
+               HorizontalTextAlignment="Center"
+               Grid.Row="1"
+               Margin="5"/>
+    </Grid>
+</ContentPage>

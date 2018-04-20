@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using Foundation;
+﻿using Foundation;
 using UIKit;
 
 namespace CustomPrototypes.iOS
@@ -22,7 +19,7 @@ namespace CustomPrototypes.iOS
         public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
             global::Xamarin.Forms.Forms.Init();
-            LoadApplication(new Portable.App());
+            LoadApplication(new NetStandard.App());
 
             return base.FinishedLaunching(app, options);
         }

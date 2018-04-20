@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Application xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:input="clr-namespace:Telerik.XamarinForms.Input;assembly=Telerik.XamarinForms.Input"
+             xmlns:primitives="clr-namespace:Telerik.XamarinForms.Primitives;assembly=Telerik.XamarinForms.Primitives"
+             x:Class="CustomPrototypes.NetStandard.App">
+    
+    <Application.Resources>
+        <ResourceDictionary>
+            <Color x:Key="AccentColor">#2CC27D</Color>
+            <Color x:Key="LightTranslucentBackgroundColor">#CCEAEAEC</Color>
+
+            <OnPlatform x:Key="EntryPadding" x:TypeArguments="Thickness">
+                <On Platform="iOS" Value="10,10,0,20" />
+                <On Platform="Android,UWP" Value="10,10,0,10" />
+            </OnPlatform>
+            
+            <input:BorderStyle x:Key="EntryBorderStyle" 
+                               CornerRadius="0" 
+                               BorderColor="#808080" 
+                               BorderThickness="5"/>
+ 
+            <Style TargetType="input:RadEntry">
+                <Setter Property="Padding" Value="{StaticResource EntryPadding}" />
+                <Setter Property="BorderStyle" Value="{StaticResource EntryBorderStyle}"/>
+            </Style>
+            
+            <Style x:Key="BusyIndicatorStyle"
+                   TargetType="primitives:RadBusyIndicator">
+                <Setter Property="AnimationType"
+                        Value="Animation6" />
+                <Setter Property="AnimationContentHeightRequest"
+                        Value="100" />
+                <Setter Property="AnimationContentWidthRequest"
+                        Value="100" />
+                <Setter Property="BackgroundColor"
+                        Value="{StaticResource LightTranslucentBackgroundColor}" />
+                <Setter Property="AnimationContentColor"
+                        Value="{StaticResource AccentColor}" />
+            </Style>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

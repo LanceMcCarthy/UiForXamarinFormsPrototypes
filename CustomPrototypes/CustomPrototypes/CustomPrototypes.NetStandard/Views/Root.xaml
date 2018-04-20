@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<MasterDetailPage xmlns="http://xamarin.com/schemas/2014/forms"
+                  xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                  x:Class="CustomPrototypes.NetStandard.Views.Root"
+                  xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+                  xmlns:views="clr-namespace:CustomPrototypes.NetStandard.Views;assembly=CustomPrototypes.NetStandard"
+                  ios:Page.UseSafeArea="true"
+                  ios:Page.LargeTitleDisplay="Automatic">
+
+    <MasterDetailPage.IsPresented>
+        <OnPlatform x:TypeArguments="x:Boolean">
+            <On Platform="UWP"
+                Value="True" />
+        </OnPlatform>
+    </MasterDetailPage.IsPresented>
+
+    <MasterDetailPage.Master>
+        <views:RootMaster x:Name="MasterPage" />
+    </MasterDetailPage.Master>
+
+    <MasterDetailPage.Detail>
+        <NavigationPage>
+            <x:Arguments>
+                <views:RootDetail />
+            </x:Arguments>
+        </NavigationPage>
+    </MasterDetailPage.Detail>
+</MasterDetailPage>

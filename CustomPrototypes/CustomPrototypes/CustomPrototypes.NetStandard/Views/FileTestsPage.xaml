@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage x:Name="Page"
+             xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewModels="clr-namespace:CustomPrototypes.NetStandard.ViewModels;assembly=CustomPrototypes.NetStandard"
+             xmlns:dataGrid="clr-namespace:Telerik.XamarinForms.DataGrid;assembly=Telerik.XamarinForms.DataGrid"
+             xmlns:primitives="clr-namespace:Telerik.XamarinForms.Primitives;assembly=Telerik.XamarinForms.Primitives"
+             x:Class="CustomPrototypes.NetStandard.Views.FileTestsPage">
+
+    <ContentPage.BindingContext>
+        <viewModels:FileTestsViewModel x:Name="ViewModel" />
+    </ContentPage.BindingContext>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <dataGrid:RadDataGrid ItemsSource="{Binding Images}"
+                              AutoGenerateColumns="False">
+            <dataGrid:RadDataGrid.Columns>
+                <dataGrid:DataGridTemplateColumn HeaderText="Image">
+                    <dataGrid:DataGridTemplateColumn.CellContentTemplate>
+                        <DataTemplate>
+                            <Image Source="{Binding Source}"
+                                   HeightRequest="160"
+                                   WidthRequest="90" />
+                        </DataTemplate>
+                    </dataGrid:DataGridTemplateColumn.CellContentTemplate>
+                </dataGrid:DataGridTemplateColumn>
+                <dataGrid:DataGridTextColumn PropertyName="FileName"
+                                             HeaderText="File Name">
+                    <dataGrid:DataGridTextColumn.CellContentStyle>
+                        <dataGrid:DataGridTextCellStyle VerticalTextAlignment="Center"
+                                                        TextMargin="5" />
+                    </dataGrid:DataGridTextColumn.CellContentStyle>
+                </dataGrid:DataGridTextColumn>
+            </dataGrid:RadDataGrid.Columns>
+        </dataGrid:RadDataGrid>
+        
+        <StackLayout Grid.Row="1">
+            <Button Text="Get New Image"
+                    Command="{Binding DownloadNextImageCommand}"
+                    Margin="5" />
+            <Button Text="Delete All"
+                    Command="{Binding DeleteAllImagesCommand}"
+                    Margin="5" />
+        </StackLayout>
+
+       
+        
+        <primitives:RadBusyIndicator x:Name="BusyIndicator"
+                                     IsVisible="{Binding IsBusy}"
+                                     IsBusy="{Binding IsBusy}"
+                                     AnimationType="Animation7"
+                                     Style="{StaticResource BusyIndicatorStyle}"
+                                     Grid.Row="0" 
+                                     Grid.RowSpan="2">
+            <primitives:RadBusyIndicator.Content>
+                <Grid BindingContext="{x:Reference Page}"
+                      WidthRequest="{Binding Width}"
+                      HeightRequest="{Binding Height}" />
+            </primitives:RadBusyIndicator.Content>
+        </primitives:RadBusyIndicator>
+    </Grid>
+</ContentPage>
