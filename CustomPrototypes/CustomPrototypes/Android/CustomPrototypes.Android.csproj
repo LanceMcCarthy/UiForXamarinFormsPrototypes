@@ -75,6 +75,9 @@
     <Reference Include="Telerik.Xamarin.Android.Data">
       <HintPath>C:\Program Files (x86)\Progress\Telerik UI for Xamarin R1 2018\Binaries\Android\Telerik.Xamarin.Android.Data.dll</HintPath>
     </Reference>
+    <Reference Include="Telerik.Xamarin.Android.Feedback">
+      <HintPath>..\..\..\..\..\..\..\..\Program Files (x86)\Progress\Telerik UI for Xamarin R1 2018\Binaries\Android\Telerik.Xamarin.Android.Feedback.dll</HintPath>
+    </Reference>
     <Reference Include="Telerik.Xamarin.Android.Gauges">
       <HintPath>C:\Program Files (x86)\Progress\Telerik UI for Xamarin R1 2018\Binaries\Android\Telerik.Xamarin.Android.Gauges.dll</HintPath>
     </Reference>
@@ -113,6 +116,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="fo-dicom">
+      <Version>3.1.0-alpha</Version>
+    </PackageReference>
     <PackageReference Include="Xamarin.Forms" Version="2.5.1.444934" />
     <PackageReference Include="SkiaSharp" Version="1.59.3" />
     <PackageReference Include="SkiaSharp.Views " Version="1.59.3" />
@@ -129,6 +135,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CustomRenderers\Calendar\CustomCalendarRenderer.cs" />
+    <Compile Include="DependencyServices\CustomDicomService.cs" />
     <Compile Include="MainActivity.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -153,6 +160,7 @@
       <Name>CustomPrototypes.NetStandard</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
      Other similar extension points exist, see Microsoft.Common.targets.

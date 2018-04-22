@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage x:Name="Page"
+             xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewModels="clr-namespace:CustomPrototypes.NetStandard.ViewModels;assembly=CustomPrototypes.NetStandard"
+             xmlns:primitives="clr-namespace:Telerik.XamarinForms.Primitives;assembly=Telerik.XamarinForms.Primitives"
+             x:Class="CustomPrototypes.NetStandard.Views.DicomDemoPage">
+
+    <ContentPage.BindingContext>
+        <viewModels:DicomDemoViewModel />
+    </ContentPage.BindingContext>
+
+    <Grid Padding="20">
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <Image x:Name="MyImage"
+               Source="{Binding XrayImageSource}" 
+               HorizontalOptions="Fill"
+               VerticalOptions="Fill"
+               Aspect="AspectFit"/>
+
+        <Button x:Name="LoadImageButton"
+                Text="Load Image"
+                Command="{Binding LoadImageCommand}"
+                Grid.Row="1" />
+
+        <primitives:RadBusyIndicator IsBusy="{Binding IsBusy}"
+                                     IsVisible="{Binding IsBusy}"
+                                     BackgroundColor="#CCFFFFFF"
+                                     AnimationContentHeightRequest="100"
+                                     AnimationContentWidthRequest="100"
+                                     Grid.Row="0"
+                                     Grid.RowSpan="2">
+            <primitives:RadBusyIndicator.Content>
+                <Grid WidthRequest="{Binding Width, Source={x:Reference Page}}"
+                      HeightRequest="{Binding Height, Source={x:Reference Page}}" />
+            </primitives:RadBusyIndicator.Content>
+        </primitives:RadBusyIndicator>
+    </Grid>
+</ContentPage>

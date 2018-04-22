@@ -1,4 +1,5 @@
-﻿using CustomPrototypes.NetStandard.Views;
+﻿using CustomPrototypes.NetStandard.DependencyServices;
+using CustomPrototypes.NetStandard.Views;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -12,10 +13,13 @@ namespace CustomPrototypes.NetStandard
         public App()
         {
             InitializeComponent();
+            
+            DependencyService.Register<ICustomDicomService>();
 
             RootPage = new Root();
             MainPage = RootPage;
         }
+        
 
         protected override void OnStart()
         {

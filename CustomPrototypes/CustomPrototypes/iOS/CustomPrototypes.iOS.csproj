@@ -99,6 +99,7 @@
     <Compile Include="CustomRenderers\Calendar\CustomCalendarRenderer.cs" />
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
+    <Compile Include="DependencyServices\CustomDicomService.cs" />
     <None Include="Entitlements.plist" />
     <None Include="Info.plist" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -158,6 +159,9 @@
     <Reference Include="Xamarin.iOS" />
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="fo-dicom">
+      <Version>3.1.0-alpha</Version>
+    </PackageReference>
     <PackageReference Include="Xamarin.Forms" Version="2.5.1.444934" />
     <PackageReference Include="SkiaSharp" Version="1.59.3" />
     <PackageReference Include="SkiaSharp.Views " Version="1.59.3" />

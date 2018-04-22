@@ -5,6 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="fo-dicom" Version="3.1.0-alpha" />
     <PackageReference Include="Newtonsoft.Json" Version="11.0.2" />
     <PackageReference Include="SkiaSharp" Version="1.59.3" />
     <PackageReference Include="SkiaSharp.Views.Forms" Version="1.59.3" />
@@ -46,6 +47,9 @@
 
   <ItemGroup>
     <EmbeddedResource Update="App.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\DicomDemoPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\FileTestsPage.xaml">
