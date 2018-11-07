@@ -1,20 +1,21 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+﻿using CustomPrototypes.NetStandard.Common;
 using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
 
 namespace CustomPrototypes.NetStandard.Views
 {
-	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class ChatCustomizationPage : ContentPage
+    public partial class ChatCustomizationPage : ContentPage
 	{
-		public ChatCustomizationPage ()
+        public ChatCustomizationPage()
 		{
-			InitializeComponent ();
-		}
-	}
+			InitializeComponent();
+	    }
+
+	    private void RadEntry_OnTextChanged(object sender, TextChangedEventArgs e)
+	    {
+	        if (!string.IsNullOrEmpty(e?.NewTextValue))
+	        {
+	            ChatHelpers.Instance.RemainingCharacters = $"{e.NewTextValue.Length}/240";
+	        }
+	    }
+    }
 }
