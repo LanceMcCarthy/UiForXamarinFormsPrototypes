@@ -1,20 +1,22 @@
-﻿namespace CustomPrototypes.NetStandard.Models
+﻿using CommonHelpers.Common;
+
+namespace CustomPrototypes.NetStandard.Models
 {
-    public class Data : ObservableObject
+    public class Data : BindableBase
     {
-        private string country;
-        private string capital;
+        private string _country;
+        private string _capital;
 
         public string Country
         {
-            get => country;
-            set => SetProperty(ref country, value);
+            get => _country;
+            set => SetProperty(ref _country, value);
         }
 
         public string Capital
         {
-            get => capital;
-            set => SetProperty(ref capital, value);
+            get => _capital;
+            set => SetProperty(ref _capital, value);
         }
     }
 }

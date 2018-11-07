@@ -1,7 +1,7 @@
 ﻿using System.Diagnostics;
-using System.IO;
 using System.Net.Http;
 using System.Threading.Tasks;
+using CommonHelpers.Common;
 using CustomPrototypes.NetStandard.DependencyServices;
 using Dicom;
 using Xamarin.Forms;
@@ -10,12 +10,12 @@ namespace CustomPrototypes.NetStandard.ViewModels
 {
     public class DicomDemoViewModel : ViewModelBase
     {
-        private readonly HttpClient client;
-        private ImageSource xrayImageSource;
+        private readonly HttpClient _client;
+        private ImageSource _xrayImageSource;
 
         public DicomDemoViewModel()
         {
-            client = new HttpClient();
+            _client = new HttpClient();
 
             LoadImageCommand = new Command(() =>
             {
@@ -30,8 +30,8 @@ namespace CustomPrototypes.NetStandard.ViewModels
 
         public ImageSource XrayImageSource
         {
-            get => xrayImageSource;
-            set => SetProperty(ref xrayImageSource, value);
+            get => _xrayImageSource;
+            set => SetProperty(ref _xrayImageSource, value);
         }
         
         public Command LoadImageCommand { get; set; }
@@ -39,7 +39,7 @@ namespace CustomPrototypes.NetStandard.ViewModels
         private async Task<ImageSource> LoadImageAsync()
         {
             Debug.WriteLine("Downloading image...");
-            using (var response = await client.GetAsync("https://www.dropbox.com/s/ublhzi54a9hcv20/CR0000001.dcm?dl=1"))
+            using (var response = await _client.GetAsync("https://www.dropbox.com/s/ublhzi54a9hcv20/CR0000001.dcm?dl=1"))
             {
                 Debug.WriteLine("Reading downloaded content...");
                 using (var streamToReadFrom = await response.Content.ReadAsStreamAsync())

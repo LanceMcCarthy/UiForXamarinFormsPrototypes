@@ -1,12 +1,13 @@
-﻿using Xamarin.Forms;
+﻿using CommonHelpers.Common;
+using Xamarin.Forms;
 
 namespace CustomPrototypes.NetStandard.Models
 {
-    public class BadgedItem : ObservableObject
+    public class BadgedItem : BindableBase
     {
-        private string title;
-        private bool hasBadges;
-        private int badgeCount;
+        private string _title;
+        private bool _hasBadges;
+        private int _badgeCount;
 
         public BadgedItem()
         {
@@ -15,22 +16,22 @@ namespace CustomPrototypes.NetStandard.Models
 
         public string Title
         {
-            get => title;
-            set => SetProperty(ref title, value);
+            get => _title;
+            set => SetProperty(ref _title, value);
         }
 
         public bool HasBadges
         {
-            get => hasBadges;
-            set => SetProperty(ref hasBadges, value);
+            get => _hasBadges;
+            set => SetProperty(ref _hasBadges, value);
         }
 
         public int BadgeCount
         {
-            get => badgeCount;
+            get => _badgeCount;
             set
             {
-                SetProperty(ref badgeCount, value);
+                SetProperty(ref _badgeCount, value);
 
                 HasBadges = value > 0;
             }

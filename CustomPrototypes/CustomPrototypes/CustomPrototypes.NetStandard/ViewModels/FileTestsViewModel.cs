@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
-using System.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
+using CommonHelpers.Common;
 using CustomPrototypes.NetStandard.Common;
 using CustomPrototypes.NetStandard.Models;
 using Xamarin.Forms;
@@ -13,20 +13,20 @@ namespace CustomPrototypes.NetStandard.ViewModels
 {
     public class FileTestsViewModel : ViewModelBase
     {
-        private readonly HttpClient client;
-        private ObservableCollection<DownloadedImage> images;
+        private readonly HttpClient _client;
+        private ObservableCollection<DownloadedImage> _images;
 
         public FileTestsViewModel()
         {
-            client = new HttpClient();
+            _client = new HttpClient();
             DownloadNextImageCommand = new Command(async () => { await DownloadAndSaveImage(); });
             DeleteAllImagesCommand = new Command(async () => { await DeleteAllAsync();});
         }
 
         public ObservableCollection<DownloadedImage> Images
         {
-            get => images ?? (images = new ObservableCollection<DownloadedImage>());
-            set => SetProperty(ref images, value);
+            get => _images ?? (_images = new ObservableCollection<DownloadedImage>());
+            set => SetProperty(ref _images, value);
         }
 
         public Command DownloadNextImageCommand { get; set; }
@@ -40,7 +40,7 @@ namespace CustomPrototypes.NetStandard.ViewModels
             {
                 IsBusy = true;
 
-                using (var response = await client.GetStreamAsync("https://picsum.photos/180/320/"))
+                using (var response = await _client.GetStreamAsync("https://picsum.photos/180/320/"))
                 {
                     var image = new DownloadedImage();
                     image.Id = DateTime.Now.Ticks;

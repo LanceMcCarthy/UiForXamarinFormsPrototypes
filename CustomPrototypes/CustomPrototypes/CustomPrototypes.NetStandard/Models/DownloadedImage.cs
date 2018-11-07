@@ -1,36 +1,37 @@
-﻿using Xamarin.Forms;
+﻿using CommonHelpers.Common;
+using Xamarin.Forms;
 
 namespace CustomPrototypes.NetStandard.Models
 {
-    public class DownloadedImage : ObservableObject
+    public class DownloadedImage : BindableBase
     {
-        private long id;
-        private string filePath;
-        private string fileName;
-        private ImageSource source;
+        private long _id;
+        private string _filePath;
+        private string _fileName;
+        private ImageSource _source;
 
         public long Id
         {
-            get => id;
-            set => SetProperty(ref id, value);
+            get => _id;
+            set => SetProperty(ref _id, value);
         }
 
         public string FilePath
         {
-            get => filePath;
-            set => SetProperty(ref filePath, value);
+            get => _filePath;
+            set => SetProperty(ref _filePath, value);
         }
 
         public string FileName
         {
-            get => fileName;
-            set => SetProperty(ref fileName, value);
+            get => _fileName;
+            set => SetProperty(ref _fileName, value);
         }
 
         public ImageSource Source
         {
-            get => source;
-            set => SetProperty(ref source, value);
+            get => _source;
+            set => SetProperty(ref _source, value);
         }
     }
 }
