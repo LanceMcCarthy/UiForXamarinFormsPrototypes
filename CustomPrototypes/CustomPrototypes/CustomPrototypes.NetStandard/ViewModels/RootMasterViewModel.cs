@@ -12,6 +12,7 @@ namespace CustomPrototypes.NetStandard.ViewModels
             MenuItems = new ObservableCollection<RootMenuItem>
             {
                 new RootMenuItem { Title = "Dicom Service", TargetType = typeof(DicomDemoPage)},
+                new RootMenuItem { Title = "Chat Customization", TargetType = typeof(ChatCustomizationPage)},
                 new RootMenuItem { Title = "File IO", TargetType = typeof(FileTestsPage)},
                 new RootMenuItem { Title = "Calendar Renderers", TargetType = typeof(CalendarRenderersPage)},
                 new RootMenuItem { Title = "DataGrid EditContext", TargetType = typeof(DataGridEditContextPage)},
