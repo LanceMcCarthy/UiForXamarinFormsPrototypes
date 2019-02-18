@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Linq;
+using Telerik.XamarinForms.DataGrid;
+using Telerik.XamarinForms.Primitives;
 using Xamarin.Forms;
 
 namespace CustomPrototypes.NetStandard.Views.DataGrid
@@ -9,6 +11,24 @@ namespace CustomPrototypes.NetStandard.Views.DataGrid
 		public DataGridGrouping()
 		{
 			InitializeComponent();
+        }
+
+        private void GroupHeaderCheckbox_OnIsCheckedChanged(object sender, Telerik.XamarinForms.Primitives.CheckBox.IsCheckedChangedEventArgs e)
+        {
+            if(sender is RadCheckBox cb && cb.BindingContext is GroupHeaderContext context)
+            {
+                foreach (var item in context.Group.ChildItems)
+                {
+                    if (e.NewValue == true)
+                    {
+                        context.Grid.SelectItem(item);
+                    }
+                    else
+                    {
+                        context.Grid.DeselectItem(item);
+                    }
+                }
+            }
         }
 
         private void Button_Clicked(object sender, EventArgs e)

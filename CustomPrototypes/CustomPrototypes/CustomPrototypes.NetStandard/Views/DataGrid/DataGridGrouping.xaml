@@ -4,10 +4,11 @@
              xmlns:dataGrid="clr-namespace:Telerik.XamarinForms.DataGrid;assembly=Telerik.XamarinForms.DataGrid"
              xmlns:data="clr-namespace:Telerik.XamarinForms.Common.Data;assembly=Telerik.XamarinForms.Common"
              xmlns:viewModels="clr-namespace:CustomPrototypes.NetStandard.ViewModels;assembly=CustomPrototypes.NetStandard"
+             xmlns:primitives="clr-namespace:Telerik.XamarinForms.Primitives;assembly=Telerik.XamarinForms.Primitives"
              x:Class="CustomPrototypes.NetStandard.Views.DataGrid.DataGridGrouping">
 
     <ContentPage.BindingContext>
-        <viewModels:PeopleViewModel x:Name="ViewModel"/>
+        <viewModels:PeopleViewModel x:Name="ViewModel" />
     </ContentPage.BindingContext>
 
     <Grid>
@@ -20,8 +21,22 @@
                               ItemsSource="{Binding People}"
                               SelectionUnit="Row"
                               SelectionMode="Multiple">
+                <dataGrid:RadDataGrid.GroupHeaderTemplate>
+                    <DataTemplate>
+                        <StackLayout Orientation="Horizontal">
+                            <Label Text="{Binding Group.Key}"
+                                   FontAttributes="Bold"
+                                   VerticalOptions="Center" 
+                                   Margin="0,0,10,0"/>
+                            <primitives:RadCheckBox IsCheckedChanged="GroupHeaderCheckbox_OnIsCheckedChanged"
+                                                    VerticalOptions="Center" />
+                            <Label Text="Select All"
+                                   VerticalOptions="Center" />
+                        </StackLayout>
+                    </DataTemplate>
+                </dataGrid:RadDataGrid.GroupHeaderTemplate>
             <dataGrid:RadDataGrid.GroupDescriptors>
-                <data:PropertyGroupDescriptor PropertyName="Gender"/>
+                <data:PropertyGroupDescriptor PropertyName="Gender" />
             </dataGrid:RadDataGrid.GroupDescriptors>
         </dataGrid:RadDataGrid>
 
