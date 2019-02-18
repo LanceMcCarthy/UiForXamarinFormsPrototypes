@@ -1,10 +1,12 @@
 ﻿using System.Collections.ObjectModel;
 using CommonHelpers.Common;
 using CustomPrototypes.NetStandard.Models;
-using CustomPrototypes.NetStandard.Views;
+using CustomPrototypes.NetStandard.Views.AutoCompleteView;
+using CustomPrototypes.NetStandard.Views.Button;
 using CustomPrototypes.NetStandard.Views.Calendar;
 using CustomPrototypes.NetStandard.Views.Chat;
 using CustomPrototypes.NetStandard.Views.DataGrid;
+using CustomPrototypes.NetStandard.Views.Other;
 
 namespace CustomPrototypes.NetStandard.ViewModels
 {
@@ -14,7 +16,24 @@ namespace CustomPrototypes.NetStandard.ViewModels
         {
             MenuItems = new ObservableCollection<NavigationMenuItem>
             {
-                new NavigationMenuItem { Title = "Dicom Service", TargetType = typeof(DicomDemoPage)},
+                new NavigationMenuItem
+                {
+                    Title = "AutoCompleteView",
+                    TargetType = null,
+                    Children = new ObservableCollection<NavigationMenuItem>
+                    {
+                        new NavigationMenuItem { Title = "MVVM", TargetType = typeof(AutoCompleteMvvm)}
+                    }
+                },
+                new NavigationMenuItem
+                {
+                    Title = "Button",
+                    TargetType = null,
+                    Children = new ObservableCollection<NavigationMenuItem>
+                    {
+                        new NavigationMenuItem { Title = "Badges", TargetType = typeof(BadgesIdeaPage)}
+                    }
+                },
                 new NavigationMenuItem
                 {
                     Title = "Calendar",
@@ -24,7 +43,6 @@ namespace CustomPrototypes.NetStandard.ViewModels
                         new NavigationMenuItem { Title = "ControlTemplate Customization", TargetType = typeof(ChatCustomizationPage)}
                     }
                 },
-                new NavigationMenuItem { Title = "File IO", TargetType = typeof(FileTestsPage)},
                 new NavigationMenuItem
                 {
                     Title = "Calendar",
@@ -40,13 +58,23 @@ namespace CustomPrototypes.NetStandard.ViewModels
                     TargetType = null,
                     Children = new ObservableCollection<NavigationMenuItem>
                     {
-                        new NavigationMenuItem { Title = "DataGrid EditContext", TargetType = typeof(DataGridEditContextPage)},
-                        new NavigationMenuItem { Title = "DataGrid Grouping", TargetType = typeof(DataGridGrouping)},
+                        new NavigationMenuItem { Title = "Edit Context", TargetType = typeof(DataGridEditContextPage)},
+                        new NavigationMenuItem { Title = "Grouping", TargetType = typeof(DataGridGrouping)},
                     }
                 },
-                new NavigationMenuItem { Title = "Global Styles", TargetType = typeof(GlobalStylesPage)},
-                new NavigationMenuItem { Title = "Badges Idea", TargetType = typeof(BadgesIdeaPage)},
-                new NavigationMenuItem { Title = "About", TargetType = typeof(AboutPage) }
+                new NavigationMenuItem
+                {
+                    Title = "Other",
+                    TargetType = null,
+                    Children = new ObservableCollection<NavigationMenuItem>
+                    {
+                        new NavigationMenuItem { Title = "Dicom Service", TargetType = typeof(DicomDemoPage)},
+                        new NavigationMenuItem { Title = "File IO", TargetType = typeof(FileTestsPage)},
+                        new NavigationMenuItem { Title = "Global Styles", TargetType = typeof(GlobalStylesPage)}
+                    }
+                },
+                
+                new NavigationMenuItem { Title = "About", TargetType = typeof(AboutPage)}
             };
         }
 

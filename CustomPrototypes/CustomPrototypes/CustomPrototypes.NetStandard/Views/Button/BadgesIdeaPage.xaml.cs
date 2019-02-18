@@ -1,9 +1,7 @@
 ﻿using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
 
-namespace CustomPrototypes.NetStandard.Views
+namespace CustomPrototypes.NetStandard.Views.Button
 {
-    [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class BadgesIdeaPage : ContentPage
     {
         public BadgesIdeaPage()

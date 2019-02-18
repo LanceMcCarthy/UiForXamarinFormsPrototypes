@@ -5,7 +5,7 @@
              xmlns:listView="clr-namespace:Telerik.XamarinForms.DataControls.ListView;assembly=Telerik.XamarinForms.DataControls"
              xmlns:input="clr-namespace:Telerik.XamarinForms.Input;assembly=Telerik.XamarinForms.Input"
              xmlns:viewModels1="clr-namespace:CustomPrototypes.NetStandard.ViewModels;assembly=CustomPrototypes.NetStandard"
-             x:Class="CustomPrototypes.NetStandard.Views.BadgesIdeaPage">
+             x:Class="CustomPrototypes.NetStandard.Views.Button.BadgesIdeaPage">
 
     <ContentPage.BindingContext>
         <viewModels1:BadgesIdeaViewModel x:Name="ViewModel" />

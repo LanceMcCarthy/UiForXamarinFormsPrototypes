@@ -1,6 +1,6 @@
 ﻿using Xamarin.Forms;
 
-namespace CustomPrototypes.NetStandard.Views
+namespace CustomPrototypes.NetStandard.Views.Other
 {
 	public partial class FileTestsPage : ContentPage
 	{

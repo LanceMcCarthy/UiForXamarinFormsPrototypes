@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewModels="clr-namespace:CustomPrototypes.NetStandard.ViewModels;assembly=CustomPrototypes.NetStandard"
+             xmlns:input="clr-namespace:Telerik.XamarinForms.Input;assembly=Telerik.XamarinForms.Input"
+             xmlns:behaviors="clr-namespace:CustomPrototypes.NetStandard.Behaviors;assembly=CustomPrototypes.NetStandard"
+             x:Class="CustomPrototypes.NetStandard.Views.AutoCompleteView.AutoCompleteMvvm">
+
+    <ContentPage.BindingContext>
+        <viewModels:PeopleViewModel x:Name="ViewModel" />
+    </ContentPage.BindingContext>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <input:RadAutoCompleteView x:Name="autoCompleteView"
+                                   ItemsSource="{Binding People}"
+                                   Text="{Binding SelectedText, Mode=TwoWay}"
+                                   TextSearchPath="Name"
+                                   Watermark="Choose a person..."
+                                   VerticalOptions="Start" 
+                                   SuggestionViewHeight="400"
+                                   Margin="10">
+            <input:RadAutoCompleteView.Behaviors>
+                <behaviors:EventToCommandBehavior EventName="SuggestionItemSelected"
+                                                  Command="{Binding SuggestionSelectedCommand}" />
+            </input:RadAutoCompleteView.Behaviors>
+        </input:RadAutoCompleteView>
+
+        <StackLayout Grid.Row="1"
+                     Padding="10"
+                     Spacing="2">
+            <Label Text="Current Text"
+                   FontAttributes="Bold" />
+            <Label Text="{Binding SelectedText}"
+                   HorizontalOptions="Center"
+                   Margin="0,0,0,10" />
+            <Label Text="Selected Suggestion"
+                   FontAttributes="Bold"
+                   HorizontalOptions="Center" />
+            <Label Text="{Binding SelectedPerson.Name, StringFormat='Name: {0}'}"
+                   HorizontalOptions="Center" />
+            <Label Text="{Binding SelectedPerson.Age, StringFormat='Age: {0}'}"
+                   HorizontalOptions="Center" />
+            <Label Text="{Binding SelectedPerson.DateOfBirth, StringFormat='DOB: {0}'}"
+                   HorizontalOptions="Center" />
+            <Label Text="{Binding SelectedPerson.Gender, StringFormat='Gender: {0}'}"
+                   HorizontalOptions="Center" />
+        </StackLayout>
+    </Grid>
+</ContentPage>
