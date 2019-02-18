@@ -4,7 +4,7 @@ using Telerik.XamarinForms.DataGrid;
 using Telerik.XamarinForms.DataGrid.Commands;
 using Xamarin.Forms;
 
-namespace CustomPrototypes.NetStandard.Views
+namespace CustomPrototypes.NetStandard.Views.DataGrid
 {
     public partial class DataGridEditContextPage : ContentPage
     {

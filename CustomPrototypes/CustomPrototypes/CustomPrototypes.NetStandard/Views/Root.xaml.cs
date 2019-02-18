@@ -9,12 +9,15 @@ namespace CustomPrototypes.NetStandard.Views
         public Root()
         {
             InitializeComponent();
-            MasterPage.ListView.ItemTapped += ListView_ItemTapped;
+            MasterPage.TreeView.ItemTapped += TreeView_ItemTapped;
         }
 
-        private void ListView_ItemTapped(object sender, Telerik.XamarinForms.DataControls.ListView.ItemTapEventArgs e)
+        private void TreeView_ItemTapped(object sender, Telerik.XamarinForms.DataControls.TreeView.TreeViewItemEventArgs e)
         {
-            if (!(e.Item is RootMenuItem item)) 
+            if (!(e.Item is NavigationMenuItem item))
+                return;
+
+            if(item.TargetType == null)
                 return;
 
             var page = (Page)Activator.CreateInstance(item.TargetType);
@@ -23,9 +26,13 @@ namespace CustomPrototypes.NetStandard.Views
 
             Detail = new NavigationPage(page);
 
-            // Hide the pane on app launch if we're not running on desktop
-            if (Device.RuntimePlatform != "UWP")
-                IsPresented = false;
+            // Hide the master page, except on UWP-desktop
+            if (Device.RuntimePlatform == Device.UWP && Device.Idiom == TargetIdiom.Desktop)
+            {
+                return;
+            }
+
+            IsPresented = false;
         }
     }
 }

@@ -1,6 +1,6 @@
 ﻿using Xamarin.Forms;
 
-namespace CustomPrototypes.NetStandard.Views
+namespace CustomPrototypes.NetStandard.Views.Calendar
 {
     public partial class CalendarRenderersPage : ContentPage
     {

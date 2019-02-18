@@ -6,14 +6,14 @@ namespace CustomPrototypes.NetStandard.Views
 {
     public partial class RootMaster : ContentPage
     {
-        public RadListView ListView;
+        public RadTreeView TreeView;
 
         public RootMaster()
         {
             InitializeComponent();
 
             BindingContext = new RootMasterViewModel();
-            ListView = MenuItemsListView;
+            TreeView = MenuItemsTreeView;
         }
     }
 }

@@ -1,7 +1,7 @@
 ﻿using CustomPrototypes.NetStandard.Common;
 using Xamarin.Forms;
 
-namespace CustomPrototypes.NetStandard.Views
+namespace CustomPrototypes.NetStandard.Views.Chat
 {
     public partial class ChatCustomizationPage : ContentPage
 	{

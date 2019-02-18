@@ -7,7 +7,7 @@
              xmlns:telerikCommon="clr-namespace:Telerik.XamarinForms.Common;assembly=Telerik.XamarinForms.Common"
              xmlns:portable="clr-namespace:CustomPrototypes.NetStandard.Common;assembly=CustomPrototypes.NetStandard"
              xmlns:converters="clr-namespace:CustomPrototypes.NetStandard.Converters;assembly=CustomPrototypes.NetStandard"
-             x:Class="CustomPrototypes.NetStandard.Views.ChatCustomizationPage">
+             x:Class="CustomPrototypes.NetStandard.Views.Chat.ChatCustomizationPage">
 
     <ContentPage.Resources>
         <telerikConversationalUI:ChatListViewMarginConverter x:Key="ChatListViewMarginConverter" />

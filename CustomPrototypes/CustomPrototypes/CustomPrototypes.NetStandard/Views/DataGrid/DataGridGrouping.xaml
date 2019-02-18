@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:dataGrid="clr-namespace:Telerik.XamarinForms.DataGrid;assembly=Telerik.XamarinForms.DataGrid"
+             xmlns:data="clr-namespace:Telerik.XamarinForms.Common.Data;assembly=Telerik.XamarinForms.Common"
+             xmlns:viewModels="clr-namespace:CustomPrototypes.NetStandard.ViewModels;assembly=CustomPrototypes.NetStandard"
+             x:Class="CustomPrototypes.NetStandard.Views.DataGrid.DataGridGrouping">
+
+    <ContentPage.BindingContext>
+        <viewModels:PeopleViewModel x:Name="ViewModel"/>
+    </ContentPage.BindingContext>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <dataGrid:RadDataGrid x:Name="DataGrid"
+                              ItemsSource="{Binding People}"
+                              SelectionUnit="Row"
+                              SelectionMode="Multiple">
+            <dataGrid:RadDataGrid.GroupDescriptors>
+                <data:PropertyGroupDescriptor PropertyName="Gender"/>
+            </dataGrid:RadDataGrid.GroupDescriptors>
+        </dataGrid:RadDataGrid>
+
+        <Button Grid.Row="1"
+                Clicked="Button_Clicked"
+                Text="Select All in First Group" />
+    </Grid>
+</ContentPage>
